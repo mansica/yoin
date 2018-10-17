@@ -1,3 +1,4 @@
+import { DynamoDB } from './../providers/aws.dynamodb';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -16,6 +17,11 @@ import { ChatPage } from '../pages/chat/chat';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import Amplify from 'aws-amplify';
+const aws_exports = require('../aws-exports').default;
+
+Amplify.configure(aws_exports);
 
 @NgModule({
   declarations: [
@@ -52,7 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DynamoDB
   ]
 })
 export class AppModule {}
