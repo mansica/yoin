@@ -6,43 +6,37 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page4">
-  <form id="createEvent-form3">
-    <ion-item id="createEvent-input6">
+  <form (submit)="createEvent()">
+    <ion-item>
       <ion-label>
         Title
       </ion-label>
-      <ion-input type="text" placeholder="" name="title"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="item.title" name="title"></ion-input>
     </ion-item>
-    <ion-item id="createEvent-select1">
+    <ion-item>
       <ion-label>
         Type
       </ion-label>
-      <ion-select name="">
-        <ion-option>
-          Soccer
-        </ion-option>
-        <ion-option>
-          Cinema
-        </ion-option>
-        <ion-option>
-          Dinner
-        </ion-option>
+      <ion-select [(ngModel)]="item.category" name="category">
+        <ion-option>Soccer</ion-option>
+        <ion-option>Cinema</ion-option>
+        <ion-option>Dinner</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item id="createEvent-input7">
+    <ion-item>
       <ion-label>
         Date
       </ion-label>
-      <ion-input type="date" placeholder="" name="date"></ion-input>
+      <ion-input type="date" placeholder="" [(ngModel)]="item.date" name="date"></ion-input>
     </ion-item>
-    <ion-item id="createEvent-input8">
+    <ion-item>
       <ion-label>
         Details
       </ion-label>
-      <ion-input type="text" placeholder="" name="details"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="item.details" name="details"></ion-input>
     </ion-item>
+    <button ion-button color="stable" block>
+      Create
+    </button>
   </form>
-  <button id="createEvent-button4" ion-button color="stable" block>
-    Create
-  </button>
 </ion-content>

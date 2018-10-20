@@ -4,7 +4,8 @@ import AWS from 'aws-sdk';
 const aws_exports = require('../aws-exports').default;
 
 AWS.config.region = aws_exports.aws_project_region;
-AWS.config.update({customUserAgent: 'ionic-starter'});
+
+AWS.config.update({customUserAgent: 'MobileHub v0.1'});
 
 const logger = new Logger('DynamoDB');
 

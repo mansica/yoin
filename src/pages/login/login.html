@@ -5,28 +5,31 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page7">
-  <form id="login-form1">
-    <ion-list id="login-list1">
-      <ion-item id="login-input1">
-        <ion-label>
-          Email
-        </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+<ion-content>
+<!--   <div text-center class="logo">
+    <img src="assets/uniter.png" />
+  </div>
+ -->  <form (submit)="login()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input [(ngModel)]="loginDetails.username" type="text" autocorrect="off" autocapitalize="none" name="username"></ion-input>
       </ion-item>
-      <ion-item id="login-input2">
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input [(ngModel)]="loginDetails.password" type="password" name="password"></ion-input>
       </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>LOGIN</button>
+      </div>
+
+      <div padding text-center>
+        <p>Don't have an account yet? <a (click)="signup()">Create one.</a></p>
+      </div>
+
     </ion-list>
-    <div class="spacer" style="height:40px;" id="login-spacer1"></div>
-    <button id="login-button1" ion-button color="stable" block>
-      Log in
-    </button>
-    <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup">
-      Or create an account
-    </button>
   </form>
 </ion-content>

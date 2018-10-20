@@ -11,13 +11,13 @@
       <ion-label>
         Title
       </ion-label>
-      <ion-input type="text" placeholder="" name="title"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="item.title" name="title"></ion-input>
     </ion-item>
     <ion-item id="event-select2">
       <ion-label>
         Type
       </ion-label>
-      <ion-select name="">
+      <ion-select [(ngModel)]="item.category" name="category">
         <ion-option>
           Soccer
         </ion-option>
@@ -33,13 +33,13 @@
       <ion-label>
         Date
       </ion-label>
-      <ion-input type="date" placeholder="" name="date"></ion-input>
+      <ion-input type="date" placeholder="" [(ngModel)]="item.date" name="date"></ion-input>
     </ion-item>
     <ion-item id="event-input11">
       <ion-label>
         Details
       </ion-label>
-      <ion-input type="text" placeholder="" name="details"></ion-input>
+      <ion-input type="text" placeholder="" [(ngModel)]="item.details" name="details"></ion-input>
     </ion-item>
   </form>
   <button id="event-button5" ion-button color="energized" block>

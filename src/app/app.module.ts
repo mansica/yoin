@@ -12,6 +12,8 @@ import { MessasgesPage } from '../pages/messasges/messasges';
 import { MePage } from '../pages/me/me';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ConfirmSignInPage } from '../pages/confirmSignIn/confirmSignIn';
+import { ConfirmSignUpPage } from '../pages/confirmSignUp/confirmSignUp';
 import { ChatPage } from '../pages/chat/chat';
 
 
@@ -35,6 +37,8 @@ Amplify.configure(aws_exports);
     MePage,
     LoginPage,
     SignupPage,
+    ConfirmSignInPage,
+    ConfirmSignUpPage,
     ChatPage
   ],
   imports: [
@@ -53,6 +57,8 @@ Amplify.configure(aws_exports);
     MePage,
     LoginPage,
     SignupPage,
+    ConfirmSignInPage,
+    ConfirmSignUpPage,
     ChatPage
   ],
   providers: [
