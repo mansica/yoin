@@ -1,17 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Events
-    </ion-title>
+    <ion-searchbar></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page2">
   <ion-list id="events-list3">
     <ion-item-sliding *ngFor="let item of items; let idx = index;">
       <ion-item color="none" on-click="goToEvent(item)" id="events-list-item1">
-        <ion-icon name="football" item-left></ion-icon>
-        {{item.title}}
-        <ion-note item-right>{{item.details}}</ion-note>
+        <ion-thumbnail item-left>
+          <img />
+        </ion-thumbnail>
+        <h2>
+          {{item.title}}
+        </h2>
       </ion-item>
       <ion-item-options side="left">
         <button ion-button color="positive">

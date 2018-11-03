@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Auth, Logger } from 'aws-amplify';
+import { MapPage } from '../map/map';
 import AWS from 'aws-sdk';
 AWS.config.logger = console
 const logger = new Logger('Event');
@@ -10,11 +11,20 @@ const logger = new Logger('Event');
   templateUrl: 'event.html'
 })
 export class EventPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  public item:any;
+  public event:any;
+  public yoiners: any  
   constructor(public navCtrl: NavController,public navParams: NavParams) {
-    this.item = navParams.get('item');
+    Auth.currentCredentials().then(credentials => {
+      this.event = navParams.get('event');
+      this.yoiners = ["Kalle", "Nisse", "Åke"]
+      logger.debug("Item", this.event)
+    })
+    .catch(err => logger.debug('get current credentials err', err));
+
   }
-  
+  goToMap(params){
+    if (!params) params = {};
+    this.navCtrl.push(MapPage);
+  }
+
 }

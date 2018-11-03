@@ -12,6 +12,7 @@ import { MessasgesPage } from '../pages/messasges/messasges';
 import { MePage } from '../pages/me/me';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { MapPage } from '../pages/map/map';
 import { ConfirmSignInPage } from '../pages/confirmSignIn/confirmSignIn';
 import { ConfirmSignUpPage } from '../pages/confirmSignUp/confirmSignUp';
 import { ChatPage } from '../pages/chat/chat';
@@ -39,7 +40,8 @@ Amplify.configure(aws_exports);
     SignupPage,
     ConfirmSignInPage,
     ConfirmSignUpPage,
-    ChatPage
+    ChatPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ Amplify.configure(aws_exports);
     SignupPage,
     ConfirmSignInPage,
     ConfirmSignUpPage,
-    ChatPage
+    ChatPage,
+    MapPage
   ],
   providers: [
     StatusBar,

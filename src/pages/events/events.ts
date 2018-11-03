@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Auth, Logger } from 'aws-amplify';
 
 import { EventPage } from '../event/event';
@@ -34,9 +34,9 @@ export class EventsPage {
   }
 
   goToEvent(params){
-    if (!params) params = {};
-    logger.debug("Item", params)
-    this.navCtrl.push(EventPage, params);
+    //if (!params) params = {};
+    logger.debug("Item", {event: params})
+    this.navCtrl.push(EventPage, {event: params});
   }
 
   refreshTasks() {

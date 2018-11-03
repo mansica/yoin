@@ -2,7 +2,7 @@ import { DynamoDB } from './../../providers/aws.dynamodb';
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { Auth, Logger } from 'aws-amplify';
-import { EventPage } from '../event/event';
+import { EventsPage } from '../events/events';
 const logger = new Logger('CreateEvent');
 const aws_exports = require('../../aws-exports').default;
 
@@ -16,16 +16,28 @@ AWS.config.logger = console
 export class CreateEventPage {
   public item:any;
   private eventTable: string = aws_exports.aws_resource_name_prefix + '-Events';
+  public categories:any;
 
   constructor(public navCtrl: NavController, public db: DynamoDB, public loadingCtrl: LoadingController) {
     Auth.currentCredentials()
     .then(credentials => {
       this.item = {
         'userId': credentials.identityId,
-        'itemId': this.generateId()
+        'itemId': this.generateId(),
+        'category': this.categories[0].name
       };
     })
     .catch(err => logger.debug('get current credentials err', err));
+    this.categories = [
+      {name:'Soccer',icon:'football'},
+      {name:'American football',icon:"american-football"},
+      {name:'Baseball',icon:"baseball"},
+      {name:'Basketball',icon:"basketball"},
+      {name:'Bicycle',icon:"bicycle"},
+      {name:'Tennis',icon:"tennisball"},
+      {name:'Gaming',icon:"game-controller-b"},
+      {name:'Travel',icon:"globe"}
+    ];
   }
 
   createEvent() {
@@ -40,7 +52,7 @@ export class CreateEventPage {
     };
     this.db.getDocumentClient()
       .then(client => client.put(params).promise())
-      .then(data => this.navCtrl.push(EventPage, {'item':data.Item}))
+      .then(data => this.navCtrl.push(EventsPage))
       .catch(err => logger.debug('create event error', err))
       .then(loading.dismiss);
   }

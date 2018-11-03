@@ -1,48 +1,52 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Event
-    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="heart-outline"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page9">
-  <form id="event-form4">
-    <ion-item id="event-input9">
-      <ion-label>
-        Title
-      </ion-label>
-      <ion-input type="text" placeholder="" [(ngModel)]="item.title" name="title"></ion-input>
+  <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+    <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+  </div>
+  <h3 id="page9-heading1" style="color:#000000;font-weight:600;text-align:center;">
+    {{event.title}}
+  </h3>
+  <ion-list id="page9-list7" full>
+    <ion-item color="none" id="page9-list-item11">
+      Date
+      <ion-note item-right>{{event.date}}</ion-note>
     </ion-item>
-    <ion-item id="event-select2">
-      <ion-label>
-        Type
-      </ion-label>
-      <ion-select [(ngModel)]="item.category" name="category">
-        <ion-option>
-          Soccer
-        </ion-option>
-        <ion-option>
-          Cinema
-        </ion-option>
-        <ion-option>
-          Dinner
-        </ion-option>
-      </ion-select>
+    <ion-item color="none" id="page9-list-item10">
+      Category
+      <ion-note item-right>{{event.category}}</ion-note>
     </ion-item>
-    <ion-item id="event-input10">
-      <ion-label>
-        Date
-      </ion-label>
-      <ion-input type="date" placeholder="" [(ngModel)]="item.date" name="date"></ion-input>
+    <ion-item color="none" on-click="goToMap()" id="page9-list-item9">
+      Location
+      <ion-note item-right>{{event.latitude}}</ion-note>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
-    <ion-item id="event-input11">
-      <ion-label>
-        Details
-      </ion-label>
-      <ion-input type="text" placeholder="" [(ngModel)]="item.details" name="details"></ion-input>
+    <ion-item color="none" id="page9-list-item10">
+      Organizer
+      <ion-note item-right>{{event.organizer}}</ion-note>
     </ion-item>
-  </form>
-  <button id="event-button5" ion-button color="energized" block>
+    <ion-item-divider color="light" id="page9-list-item-divider1">
+      Details
+    </ion-item-divider>
+    <ion-item color="none" id="page9-list-item12">
+      {{event.details}}
+    </ion-item>
+    <ion-item-divider color="light" id="page9-list-item-divider1">
+      Yoiners
+    </ion-item-divider>
+    <ion-item *ngFor="let yoiner of yoiners">{{yoiner}}</ion-item>
+  </ion-list>
+  <button id="event-button5" ion-button color="energized" full>
     Yoin
   </button>
 </ion-content>
